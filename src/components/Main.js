@@ -59,11 +59,11 @@ class Main extends React.Component {
 
   componentDidMount () {
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
-      if (user) 
-           this.props.login(user.uid);
-      else this.props.login(null);
+      if (user) {
+          this.props.login(user.uid);
+          this.props.firebase_board_list();           
+      } else this.props.login(null);
     })
-    this.props.firebase_board_list();
   }
 
   componentWillUnmount () {
