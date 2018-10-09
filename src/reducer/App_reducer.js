@@ -25,19 +25,19 @@ export const board_list = createAction(BOARD_LIST);
 export const board_adds = createAction(BOARD_ADDS);
 
 export const firebase_login = (email, pw) =>{
-  return firebaseAuth().signInWithEmailAndPassword(email, pw);
+  return firebaseAuth.signInWithEmailAndPassword(email, pw);
 }
 
 export function firebase_logout () {
   return (dispatch) => {
-    firebaseAuth().signOut();
+    firebaseAuth.signOut();
     dispatch(logout());
   }  
 }
 
 export const firebase_register = (email, pw) =>{
-  return firebaseAuth().createUserWithEmailAndPassword(email, pw).then(function() {
-    var uid = firebaseAuth().currentUser.uid;
+  return firebaseAuth.createUserWithEmailAndPassword(email, pw).then(function() {
+    var uid = firebaseAuth.currentUser.uid;
 
     var user = {
       uid: uid,

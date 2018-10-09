@@ -58,7 +58,7 @@ function PublicRoute ({component: Component, uid, ...rest}) {
 class Main extends React.Component {
 
   componentDidMount () {
-    this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+    this.removeListener = firebaseAuth.onAuthStateChanged((user) => {
       if (user) {
           this.props.login(user.uid);
           this.props.firebase_board_list();           

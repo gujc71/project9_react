@@ -24,7 +24,8 @@ To make web development easier and faster, a variety of frequently used function
 
 - git clone https://github.com/gujc71/project9_react.git
 - npm install
-- set config for [firebase](https://firebase.google.com/docs/web/setup?authuser=0) in Firestore.js and enable services in the firebase console.
+- set config for [firebase](https://firebase.google.com/docs/web/setup?authuser=0) in Firestore.js 
+- enable services(Auth, Storage, Firestore) in the firebase console.
 - npm start
 
 ### License ###

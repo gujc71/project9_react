@@ -112,7 +112,7 @@ class UserProfile extends React.Component {
         if (pw1!==pw2) {alert("not match new password and conform"); return;}
        
         const _this = this;
-        firebaseAuth().currentUser.updatePassword(pw1).then(function() {
+        firebaseAuth.currentUser.updatePassword(pw1).then(function() {
             _this.setState({ DialogOpen: false});
             _this.props.dispatch(show_snackbar({ message: 'Changed password.', snackbarOpen: true }) );
         }).catch(function(error) {
