@@ -16,6 +16,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import {firestore, storage, firebaseAuth} from '../reducer/Firestore';
 import {show_snackbar} from '../reducer/App_reducer';
+import imageTool from './mycom/ImageTool';
 
 const styles = theme => ({
   container: {
@@ -78,17 +79,19 @@ class UserProfile extends React.Component {
         const _this = this;
 
         if (this.photofile.value) {
-          storage.child('userPhoto/'+ this.props.uid).put(this.photofile.files[0]).then(function(snapshot ) {
-            _this.setState({..._this.state, userphoto: _this.props.uid});
-			data.userphoto = _this.props.uid;
-			
-            firestore.collection('users').doc(_this.props.uid).set(data);
-
-            storage.child('userPhoto/'+ _this.props.uid).getDownloadURL()
-              .then(function(url) {
-                _this.setState({photourl: url});                  
-              })
-          }); 
+          imageTool(this.photofile.files[0], (imageurl) =>  {
+            storage.child('userPhoto/'+ this.props.uid).putString(imageurl.replace('data:image/jpeg;base64,',''), 'base64').then(function(snapshot ) {
+              _this.setState({..._this.state, userphoto: _this.props.uid});
+              data.userphoto = _this.props.uid;
+        
+              firestore.collection('users').doc(_this.props.uid).set(data);
+  
+              storage.child('userPhoto/'+ _this.props.uid).getDownloadURL()
+                .then(function(url) {
+                  _this.setState({photourl: url});                  
+                })
+            }); 
+          })
         } else {
           firestore.collection('users').doc(this.props.uid).set(data);
         }

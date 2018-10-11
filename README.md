@@ -18,6 +18,7 @@ To make web development easier and faster, a variety of frequently used function
 - [redux_board](https://github.com/gujc71/redux_board): simple board(CRUD) examples for React + Redux
 - [react_firestore](https://github.com/gujc71/react_firestore): simple board(CRUD) examples for React(Redux) + Firestore
 - [firebaseExample](https://github.com/gujc71/firebaseExample): simple board(CRUD) examples for Node.js(express): + Firestore
+- [DirectTalk9 ver.web](https://github.com/gujc71/DirectTalk9_web): A messenger app for React + Firebase based on this template (Project9).
 
 
 ### Install & Run ###
